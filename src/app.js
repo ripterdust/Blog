@@ -1,6 +1,8 @@
 import express from "express";
 import exphbs from 'express-handlebars';
 import path from 'path';
+import { router } from './routes/main.router';
+
 // Initializations
 export const app = express();
 
@@ -16,7 +18,11 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 app.set('view engine', '.hbs');
+
+
 // Middlewares
 
 // Routes
+app.use('/', router);
+
 
